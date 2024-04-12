@@ -12,6 +12,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(cors =>
+{
+	cors.AddPolicy("CorsPolicy", accesses =>
+		accesses.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 string connectionString = builder.Configuration.GetConnectionString("CloupardProductionDb");
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -32,6 +38,7 @@ if (app.Environment.IsDevelopment())
 
 HttpContextHelper.Accessor = app.Services.GetRequiredService<IHttpContextAccessor>();
 
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseMiddleware<ExceptionHandlerMiddleware>();

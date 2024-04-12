@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloupardTask.Api", "CloupardTask.Api\CloupardTask.Api.csproj", "{FE84C14F-4989-4516-AE2D-9ED7DC47A969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloupardTask.Api", "CloupardTask.Api\CloupardTask.Api.csproj", "{FE84C14F-4989-4516-AE2D-9ED7DC47A969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloupardTask.Mvc", "CloupardTask.Mvc\CloupardTask.Mvc.csproj", "{09CDD045-79CB-4992-8F18-6D959B44C071}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloupardTask.Domain", "CloupardTask.Domain\CloupardTask.Domain.csproj", "{FA06C2B2-D26E-4A87-BD40-01CE0733D28C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloupardTask.DataAccess", "CloupardTask.DataAccess\CloupardTask.DataAccess.csproj", "{8C764001-0D93-40AE-AC11-4D47699740BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloupardTask.Service", "CloupardTask.Service\CloupardTask.Service.csproj", "{CCF5261B-4D0B-4802-9A0F-2E594575D797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{FE84C14F-4989-4516-AE2D-9ED7DC47A969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE84C14F-4989-4516-AE2D-9ED7DC47A969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE84C14F-4989-4516-AE2D-9ED7DC47A969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09CDD045-79CB-4992-8F18-6D959B44C071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CDD045-79CB-4992-8F18-6D959B44C071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CDD045-79CB-4992-8F18-6D959B44C071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CDD045-79CB-4992-8F18-6D959B44C071}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA06C2B2-D26E-4A87-BD40-01CE0733D28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA06C2B2-D26E-4A87-BD40-01CE0733D28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA06C2B2-D26E-4A87-BD40-01CE0733D28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA06C2B2-D26E-4A87-BD40-01CE0733D28C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C764001-0D93-40AE-AC11-4D47699740BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C764001-0D93-40AE-AC11-4D47699740BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C764001-0D93-40AE-AC11-4D47699740BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C764001-0D93-40AE-AC11-4D47699740BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF5261B-4D0B-4802-9A0F-2E594575D797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF5261B-4D0B-4802-9A0F-2E594575D797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF5261B-4D0B-4802-9A0F-2E594575D797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF5261B-4D0B-4802-9A0F-2E594575D797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

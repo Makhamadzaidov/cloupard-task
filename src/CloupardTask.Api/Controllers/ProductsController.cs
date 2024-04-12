@@ -3,6 +3,7 @@ using CloupardTask.Api.DTO_s;
 using CloupardTask.Api.Interfaces.Services;
 using CloupardTask.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 
 namespace CloupardTask.Api.Controllers
@@ -23,7 +24,7 @@ namespace CloupardTask.Api.Controllers
 		}
 
 		[HttpDelete("DeleteProduct")]
-		public async Task<IActionResult> DeleteAsync([FromForm] Guid Id)
+		public async Task<IActionResult> DeleteAsync([FromForm, Required] Guid Id)
 		{
 			return Ok(await _productService.DeleteAsync(p => p.Id == Id));
 		}
