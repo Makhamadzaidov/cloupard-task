@@ -2,6 +2,7 @@
 using CloupardTask.Api.DTO_s;
 using CloupardTask.Api.Interfaces.Services;
 using CloupardTask.Api.Models;
+using CloupardTask.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CloupardTask.Mvc.Controllers
