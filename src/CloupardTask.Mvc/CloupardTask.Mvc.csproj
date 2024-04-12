@@ -6,4 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\delete_button.jpg" />
+    <Content Remove="wwwroot\Images\edit_button.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CloupardTask.Service\CloupardTask.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\Images\delete_button.jpg" />
+    <Resource Include="wwwroot\Images\edit_button.png" />
+  </ItemGroup>
+
 </Project>

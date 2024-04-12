@@ -42,13 +42,16 @@ namespace CloupardTask.Api.Services
 			return true;
 		}
 
-		public Task<IEnumerable<Product>> GetAllAsync(Expression<Func<Product, bool>> expression, PaginationParams? @params = null)
-		{
-			var products = _productRepository.GetAllProducts(expression).ToPagedAsEnumerable(@params);
-			return Task.FromResult(products);
-		}
+        public Task<IEnumerable<Product>> GetAllAsync(Expression<Func<Product, bool>> expression, PaginationParams? @params = null)
+        {
+            var products = _productRepository.GetAllProducts(expression)
+                                              .OrderBy(p => p.Name)
+                                              .ToPagedAsEnumerable(@params);
+            return Task.FromResult(products);
+        }
 
-		public async Task<Product> UpdateAsync(ProductUpdateDto dto)
+
+        public async Task<Product> UpdateAsync(ProductUpdateDto dto)
 		{
 			var entity = await _productRepository.GetAsync(p => p.Id == dto.Id);
 
