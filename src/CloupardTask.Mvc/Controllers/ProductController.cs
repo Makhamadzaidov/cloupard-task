@@ -4,6 +4,7 @@ using CloupardTask.Api.Interfaces.Services;
 using CloupardTask.Api.Models;
 using CloupardTask.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
+using PagedList;
 
 namespace CloupardTask.Mvc.Controllers
 {
@@ -14,12 +15,14 @@ namespace CloupardTask.Mvc.Controllers
         {
             _productService = productService;
         }
+
         public async Task<IActionResult> Index()
         {
             var products = await _productService.GetAllAsync();
 
             return View(products);
         }
+
         [HttpPost]
         public async Task<IActionResult> AddProduct(ProductCreateDto product)
         {
@@ -27,6 +30,7 @@ namespace CloupardTask.Mvc.Controllers
 
             return RedirectToAction("Index");
         }
+
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(ProductUpdateDto product)
         {
@@ -34,6 +38,7 @@ namespace CloupardTask.Mvc.Controllers
 
             return RedirectToAction("Index");
         }
+
         [HttpPost]
         public async Task<IActionResult> DeleteAsync(Guid Id)
         {
