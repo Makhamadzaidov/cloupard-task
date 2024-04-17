@@ -135,6 +135,36 @@ tbody tr:hover {
             background-color: #0056b3;
         }
 
+#edit-product-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    #edit-product-form input[type="text"], #edit-product-form textarea, #edit-product-form button {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    #edit-product-form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        #edit-product-form button:hover {
+            background-color: #0056b3;
+        }
+
 #open-popup {
     padding: 10px 20px;
     background-color: #007bff;
