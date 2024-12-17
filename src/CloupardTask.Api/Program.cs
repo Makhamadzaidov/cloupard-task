@@ -4,13 +4,17 @@ using CloupardTask.Api.DbContexts;
 using CloupardTask.Api.Interfaces.Services;
 using CloupardTask.Api.Mappers;
 using CloupardTask.Api.Services;
+using CloupardTask.Service.Interfaces;
+using CloupardTask.Service.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 builder.Services.AddCors(cors =>
 {
@@ -25,7 +29,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddAutoMapper(typeof(MapperProfile));
+
+/*builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    });*/
+
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();

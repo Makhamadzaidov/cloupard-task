@@ -40,7 +40,7 @@ namespace CloupardTask.Mvc.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteAsync(Guid Id)
+        public async Task<IActionResult> DeleteAsync(int Id)
         {
             await _productService.DeleteAsync(p => p.Id == Id);
 

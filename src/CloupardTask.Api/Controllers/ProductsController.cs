@@ -1,7 +1,11 @@
 ﻿using CloupardTask.Api.Commons.Utils;
+using CloupardTask.Api.DbContexts;
 using CloupardTask.Api.DTO_s;
+using CloupardTask.Api.Interfaces.Repositories;
 using CloupardTask.Api.Interfaces.Services;
 using CloupardTask.Api.Models;
+using CloupardTask.Api.Repositories;
+using CloupardTask.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
@@ -17,6 +21,7 @@ namespace CloupardTask.Api.Controllers
 		{
 			_productService = productService;
 		}
+
 		[HttpPost("CreateProduct")]
 		public async Task<IActionResult> CreateAsync([FromForm] ProductCreateDto product)
 		{
@@ -24,15 +29,15 @@ namespace CloupardTask.Api.Controllers
 		}
 
 		[HttpDelete("DeleteProduct")]
-		public async Task<IActionResult> DeleteAsync([FromForm, Required] Guid Id)
+		public async Task<IActionResult> DeleteAsync([FromForm, Required] string Name)
 		{
-			return Ok(await _productService.DeleteAsync(p => p.Id == Id));
+			return Ok(await _productService.DeleteAsync(p => p.Name == Name));
 		}
 
 		[HttpPatch("UpdateProduct")]
-		public async Task<IActionResult> UpdateAsync([FromForm] ProductUpdateDto product)
+		public async Task<IActionResult> UpdateAsync([FromQuery]string oldProductName, [FromForm] ProductUpdateDto product)
 		{
-			return Ok(await _productService.UpdateAsync(product));
+			return Ok(await _productService.UpdateAsync(oldProductName, product));
 		}
 
 		[HttpGet("GetAllProducts")]
@@ -40,6 +45,12 @@ namespace CloupardTask.Api.Controllers
 		{
 			Expression<Func<Product, bool>> expression = name != null ? p => p.Name.Trim() == name : null;
 			return Ok(await _productService.GetAllAsync(expression, @params));
+		}
+
+		[HttpGet("GetProduct")]
+		public async Task<IActionResult> GetAsync([FromQuery] string name)
+		{
+			return Ok(await _productService.GetAsync(p => p.Name == name));
 		}
 	}
 }

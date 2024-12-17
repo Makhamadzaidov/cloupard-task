@@ -2,8 +2,10 @@
 using CloupardTask.Api.Interfaces.Repositories;
 using CloupardTask.Api.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq.Expressions;
 
+#nullable disable
 namespace CloupardTask.Api.Repositories
 {
 	public class ProductRepository : IProductRepository
@@ -29,15 +31,14 @@ namespace CloupardTask.Api.Repositories
 
 		public IQueryable<Product> GetAllProducts(Expression<Func<Product, bool>> predicate = null)
 		{
-			return predicate == null ? _dbContext.Products : _dbContext.Products.Where(predicate);
+			return predicate == null ? _dbContext.Products.Include(p => p.Category) : _dbContext.Products.Include(p => p.Category).Where(predicate);
 		}
 
 		public async Task<Product> GetAsync(Expression<Func<Product, bool>> predicate = null)
 		{
-			return await _dbContext.Products.FirstOrDefaultAsync(predicate);
+			return await _dbContext.Products.Include(p => p.Category).FirstOrDefaultAsync(predicate);
 		}
-
-		public async Task<Product> UpdateAsync(Product product)
+        public async Task<Product> UpdateAsync(Product product)
 		{
 			var existingProduct = await _dbContext.Products.FindAsync(product.Id);
 
