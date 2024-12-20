@@ -1,9 +1,9 @@
 ﻿using CloupardTask.Service.Helpers;
-using CloupardTask.Service.Interfaces;
+using CloupardTask.Service.Interfaces.Commons;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-namespace CloupardTask.Service.Services
+namespace CloupardTask.Service.Services.Commons
 {
     public class FileService : IFileService
     {

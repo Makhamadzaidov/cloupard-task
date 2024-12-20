@@ -1,11 +1,11 @@
 ﻿using CloupardTask.Api.DbContexts;
-using CloupardTask.DataAccess.Interfaces;
+using CloupardTask.DataAccess.Interfaces.Categories;
 using CloupardTask.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 #nullable disable
-namespace CloupardTask.DataAccess.Repositories
+namespace CloupardTask.DataAccess.Repositories.Categories
 {
     public class CategoryRepository : ICategoryRepository
     {

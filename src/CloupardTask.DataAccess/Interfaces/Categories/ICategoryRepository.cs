@@ -1,8 +1,7 @@
-﻿using CloupardTask.Api.Models;
-using CloupardTask.Domain.Models;
+﻿using CloupardTask.Domain.Models;
 using System.Linq.Expressions;
 
-namespace CloupardTask.DataAccess.Interfaces
+namespace CloupardTask.DataAccess.Interfaces.Categories
 {
     public interface ICategoryRepository
     {

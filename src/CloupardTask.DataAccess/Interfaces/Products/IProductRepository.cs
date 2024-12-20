@@ -1,7 +1,7 @@
 ﻿using CloupardTask.Api.Models;
 using System.Linq.Expressions;
 
-namespace CloupardTask.Api.Interfaces.Repositories
+namespace CloupardTask.DataAccess.Interfaces.Products
 {
     public interface IProductRepository
     {

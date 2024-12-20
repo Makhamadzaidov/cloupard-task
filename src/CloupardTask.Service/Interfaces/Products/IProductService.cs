@@ -4,7 +4,7 @@ using CloupardTask.Api.Models;
 using CloupardTask.Service.ViewModels.Products;
 using System.Linq.Expressions;
 
-namespace CloupardTask.Api.Interfaces.Services
+namespace CloupardTask.Service.Interfaces.Products
 {
     public interface IProductService
     {

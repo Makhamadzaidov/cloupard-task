@@ -1,8 +1,8 @@
 using CloupardTask.Api.Commons.Helpers;
 using CloupardTask.Api.DbContexts;
-using CloupardTask.Api.Interfaces.Services;
 using CloupardTask.Api.Mappers;
-using CloupardTask.Api.Services;
+using CloupardTask.Service.Interfaces.Products;
+using CloupardTask.Service.Services.Products;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
