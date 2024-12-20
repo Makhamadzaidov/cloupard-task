@@ -17,9 +17,6 @@ namespace CloupardTask.Api.Mappers
 
             CreateMap<Product, ProductViewModel>() .ForMember(dest => dest.ImageUrl, opt =>
                 opt.MapFrom(src => "C:\\Users\\k.maxamadzoidov\\Desktop\\cloupard-task\\src\\CloupardTask.Api\\wwwroot\\" + src.ImageUrl));
-
-            CreateMap<ProductUpdateDto, ProductViewModel>().ForMember(dest => dest.ImageUrl, opt =>
-                opt.MapFrom(src => "C:\\Users\\k.maxamadzoidov\\Desktop\\cloupard-task\\src\\CloupardTask.Api\\wwwroot\\"));
         }
     }
 }

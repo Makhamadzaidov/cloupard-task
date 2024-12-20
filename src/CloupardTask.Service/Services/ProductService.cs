@@ -137,7 +137,9 @@ namespace CloupardTask.Api.Services
 				entity.ImageUrl = await _fileService.SaveImageAsync(dto.Image);
 			}
 
-            return _mapper.Map<ProductViewModel>(await _productRepository.UpdateAsync(entity));
+			var product = await _productRepository.UpdateAsync(entity);
+
+            return _mapper.Map<ProductViewModel>(product);
 		}
 	}
 }
