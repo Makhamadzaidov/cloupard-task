@@ -4,7 +4,7 @@ using CloupardTask.Api.Commons.Extensions;
 using CloupardTask.Api.Commons.Utils;
 using CloupardTask.Api.DbContexts;
 using CloupardTask.Api.DTO_s;
-using CloupardTask.Api.Models;
+using CloupardTask.Domain.Models;
 using CloupardTask.DataAccess.Interfaces.Categories;
 using CloupardTask.DataAccess.Interfaces.Products;
 using CloupardTask.DataAccess.Repositories.Categories;

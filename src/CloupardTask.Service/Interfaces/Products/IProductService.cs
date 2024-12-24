@@ -1,6 +1,6 @@
 ﻿using CloupardTask.Api.Commons.Utils;
 using CloupardTask.Api.DTO_s;
-using CloupardTask.Api.Models;
+using CloupardTask.Domain.Models;
 using CloupardTask.Service.ViewModels.Products;
 using System.Linq.Expressions;
 

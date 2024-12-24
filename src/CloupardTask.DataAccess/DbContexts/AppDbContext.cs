@@ -1,5 +1,4 @@
-﻿using CloupardTask.Api.Models;
-using CloupardTask.Domain.Models;
+﻿using CloupardTask.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CloupardTask.Api.DbContexts

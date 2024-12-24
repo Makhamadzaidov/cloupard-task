@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CloupardTask.Api.DTO_s;
-using CloupardTask.Api.Models;
 using CloupardTask.Domain.Models;
 using CloupardTask.Service.DTOs.Categories;
 using CloupardTask.Service.DTOs.Customers;
@@ -13,61 +12,72 @@ using CloupardTask.Service.ViewModels.Products;
 
 namespace CloupardTask.Api.Mappers
 {
-    public class MapperProfile : Profile
-    {
-        public MapperProfile()
-        {
-            CreateMap<ProductCreateDto, Product>().ReverseMap()
-                .ForMember(dto => dto.Image,
-                expression => expression.MapFrom(entity => entity.ImageUrl));
+	public class MapperProfile : Profile
+	{
+		public MapperProfile()
+		{
+			CreateMap<ProductCreateDto, Product>().ReverseMap()
+				.ForMember(dto => dto.Image,
+				expression => expression.MapFrom(entity => entity.ImageUrl));
 
-            CreateMap<Product, ProductUpdateDto>().ReverseMap();
+			CreateMap<Product, ProductUpdateDto>().ReverseMap();
 
-            CreateMap<Product, ProductViewModel>()
+			/*CreateMap<Product, ProductViewModel>()
                 .ForMember(dest => dest.ImageUrl, opt =>
                     opt.MapFrom(src =>
                         string.IsNullOrEmpty(src.ImageUrl)
                             ? null
-                            : "C:\\Users\\k.maxamadzoidov\\Desktop\\cloupard-task\\src\\CloupardTask.Api\\wwwroot\\" + src.ImageUrl));
+                            : "C:\\Users\\k.maxamadzoidov\\Desktop\\cloupard-task\\src\\CloupardTask.Mvc\\wwwroot\\" + src.ImageUrl));*/
 
-            CreateMap<Category, CategoryViewModel>().ReverseMap();
-            CreateMap<CategoryCreateDto, Category>().ReverseMap();
 
-            CreateMap<Customer, CustomerViewModel>().ReverseMap();
-            CreateMap<CustomerCreateDto, Customer>().ReverseMap();
+			CreateMap<Product, ProductViewModel>()
+				.ForMember(dest => dest.ImageUrl, opt =>
+					opt.MapFrom(src =>
+					string.IsNullOrEmpty(src.ImageUrl)
+						? "/images/placeholder.jpg" // Default image
+				:		$"/{src.ImageUrl.Replace("\\", "/")}"));
 
-            // Order mappings
-            CreateMap<OrderCreateDto, Order>()
-                .ForMember(o => o.OrderDetails, opt =>
-                    opt.MapFrom(dto => dto.OrderDetails.Select(od => new OrderDetail
-                    {
-                        ProductId = od.ProductId,
-                        Quantity = od.Quantity,
-                        UnitPrice = od.UnitPrice
-                    })))
-                .ReverseMap();
 
-            CreateMap<OrderUpdateDto, Order>()
-                .ForMember(o => o.OrderDetails, opt =>
-                    opt.MapFrom(dto => dto.OrderDetails.Select(od => new OrderDetail
-                    {
-                        Quantity = od.Quantity ?? 0,
-                        UnitPrice = od.UnitPrice ?? 0m
-                    })))
-                .ReverseMap();
 
-            CreateMap<Order, OrderViewModel>()
-                .ForMember(dest => dest.CustomerName, opt =>
-                    opt.MapFrom(src => src.Customer != null ? $"{src.Customer.FirstName} {src.Customer.LastName}" : string.Empty))
-                .ForMember(dest => dest.OrderDetails, opt =>
-                    opt.MapFrom(src => src.OrderDetails.Select(od => new OrderDetailViewModel
-                    {
-                        ProductName = od.Product != null ? od.Product.Name : string.Empty,
-                        Quantity = od.Quantity,
-                        UnitPrice = od.UnitPrice
-                    })))
-                .ReverseMap();
 
-        }
-    }
+			CreateMap<Category, CategoryViewModel>().ReverseMap();
+			CreateMap<CategoryCreateDto, Category>().ReverseMap();
+
+			CreateMap<Customer, CustomerViewModel>().ReverseMap();
+			CreateMap<CustomerCreateDto, Customer>().ReverseMap();
+
+			// Order mappings
+			CreateMap<OrderCreateDto, Order>()
+				.ForMember(o => o.OrderDetails, opt =>
+					opt.MapFrom(dto => dto.OrderDetails.Select(od => new OrderDetail
+					{
+						ProductId = od.ProductId,
+						Quantity = od.Quantity,
+						UnitPrice = od.UnitPrice
+					})))
+				.ReverseMap();
+
+			CreateMap<OrderUpdateDto, Order>()
+				.ForMember(o => o.OrderDetails, opt =>
+					opt.MapFrom(dto => dto.OrderDetails.Select(od => new OrderDetail
+					{
+						Quantity = od.Quantity ?? 0,
+						UnitPrice = od.UnitPrice ?? 0m
+					})))
+				.ReverseMap();
+
+			CreateMap<Order, OrderViewModel>()
+				.ForMember(dest => dest.CustomerName, opt =>
+					opt.MapFrom(src => src.Customer != null ? $"{src.Customer.FirstName} {src.Customer.LastName}" : string.Empty))
+				.ForMember(dest => dest.OrderDetails, opt =>
+					opt.MapFrom(src => src.OrderDetails.Select(od => new OrderDetailViewModel
+					{
+						ProductName = od.Product != null ? od.Product.Name : string.Empty,
+						Quantity = od.Quantity,
+						UnitPrice = od.UnitPrice
+					})))
+				.ReverseMap();
+
+		}
+	}
 }

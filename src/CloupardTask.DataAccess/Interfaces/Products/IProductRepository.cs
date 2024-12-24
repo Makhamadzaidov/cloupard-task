@@ -1,4 +1,4 @@
-﻿using CloupardTask.Api.Models;
+﻿using CloupardTask.Domain.Models;
 using System.Linq.Expressions;
 
 namespace CloupardTask.DataAccess.Interfaces.Products

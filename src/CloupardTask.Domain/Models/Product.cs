@@ -1,7 +1,7 @@
 ﻿using CloupardTask.Domain.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace CloupardTask.Api.Models
+namespace CloupardTask.Domain.Models
 {
     public class Product
     {

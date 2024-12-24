@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\Images\delete_button.jpg" />
-    <Content Remove="wwwroot\Images\edit_button.png" />
+    <Content Remove="Views\Product\product_details.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,8 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="wwwroot\Images\delete_button.jpg" />
-    <Resource Include="wwwroot\Images\edit_button.png" />
+    <Folder Include="wwwroot\themes\less\oregional\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Product\product_details.cshtml" />
   </ItemGroup>
 
 </Project>

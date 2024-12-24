@@ -1,5 +1,4 @@
-﻿using CloupardTask.Api.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CloupardTask.Domain.Models
 {

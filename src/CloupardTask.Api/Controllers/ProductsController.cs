@@ -1,6 +1,6 @@
 ﻿using CloupardTask.Api.Commons.Utils;
 using CloupardTask.Api.DTO_s;
-using CloupardTask.Api.Models;
+using CloupardTask.Domain.Models;
 using CloupardTask.Service.Interfaces.Products;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;

@@ -1,5 +1,5 @@
 ﻿using CloupardTask.Api.DbContexts;
-using CloupardTask.Api.Models;
+using CloupardTask.Domain.Models;
 using CloupardTask.DataAccess.Interfaces.Products;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;

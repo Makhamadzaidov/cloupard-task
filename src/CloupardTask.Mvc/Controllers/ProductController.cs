@@ -1,8 +1,9 @@
 ﻿using CloupardTask.Api.Commons.Utils;
 using CloupardTask.Api.DTO_s;
-using CloupardTask.Api.Models;
+using CloupardTask.Domain.Models;
 using CloupardTask.Service.Interfaces.Products;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace CloupardTask.Mvc.Controllers
@@ -54,5 +55,12 @@ namespace CloupardTask.Mvc.Controllers
 
             return View("Index", products);
         }
-    }
+
+		public async Task<ActionResult> LatestProducts()
+		{
+            var products = await _productService.GetAllAsync();
+
+			return View(products.OrderByDescending(p => p.Price).Take(12).ToList());
+		}
+	}
 }
