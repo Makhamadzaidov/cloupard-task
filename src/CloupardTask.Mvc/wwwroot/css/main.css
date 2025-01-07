@@ -728,3 +728,17 @@ header {
   letter-spacing: 0%;
   text-align: left;
 }/*# sourceMappingURL=main.css.map */
+
+
+
+.products__cards__card__category {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 5px 10px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 12px;
+    display: inline-block;
+    text-transform: capitalize;
+}
