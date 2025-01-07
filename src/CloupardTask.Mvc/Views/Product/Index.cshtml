@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/main.css?v=1.0">
 </head>
 
 <body>
@@ -84,6 +84,15 @@
                         </svg>
                     </a>
                 </div>
+
+                <!-- Login Button -->
+                <div class="nav__login">
+                    <a href="@Url.Action("Login", "Account")" class="login-btn">
+                        <img src="~/Images/LogInIcon.jpg" alt="Login" title="Login">
+                    </a>
+
+                </div>
+
 
             </div>
         </div>
@@ -526,9 +535,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
