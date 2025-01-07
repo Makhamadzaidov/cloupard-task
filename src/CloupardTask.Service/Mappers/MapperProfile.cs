@@ -22,19 +22,12 @@ namespace CloupardTask.Api.Mappers
 
 			CreateMap<Product, ProductUpdateDto>().ReverseMap();
 
-			/*CreateMap<Product, ProductViewModel>()
-                .ForMember(dest => dest.ImageUrl, opt =>
-                    opt.MapFrom(src =>
-                        string.IsNullOrEmpty(src.ImageUrl)
-                            ? null
-                            : "C:\\Users\\k.maxamadzoidov\\Desktop\\cloupard-task\\src\\CloupardTask.Mvc\\wwwroot\\" + src.ImageUrl));*/
-
 
 			CreateMap<Product, ProductViewModel>()
 				.ForMember(dest => dest.ImageUrl, opt =>
 					opt.MapFrom(src =>
 					string.IsNullOrEmpty(src.ImageUrl)
-						? "/images/placeholder.jpg" // Default image
+						? "/Images/placeholder.jpg" // Default image
 				:		$"/{src.ImageUrl.Replace("\\", "/")}"));
 
 
