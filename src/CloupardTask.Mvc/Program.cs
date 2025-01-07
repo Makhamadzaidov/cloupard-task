@@ -3,11 +3,13 @@ using CloupardTask.Api.DbContexts;
 using CloupardTask.Api.Mappers;
 using CloupardTask.DataAccess.Interfaces.Orders;
 using CloupardTask.DataAccess.Repositories.Orders;
+using CloupardTask.Service.Interfaces.Accounts;
 using CloupardTask.Service.Interfaces.Categories;
 using CloupardTask.Service.Interfaces.Commons;
 using CloupardTask.Service.Interfaces.Customers;
 using CloupardTask.Service.Interfaces.Orders;
 using CloupardTask.Service.Interfaces.Products;
+using CloupardTask.Service.Services.Accounts;
 using CloupardTask.Service.Services.Categories;
 using CloupardTask.Service.Services.Commons;
 using CloupardTask.Service.Services.Customers;
@@ -25,15 +27,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
-
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-
-
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 builder.Services.AddAutoMapper(typeof(MapperProfile));
 

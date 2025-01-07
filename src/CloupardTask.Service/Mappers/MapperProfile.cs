@@ -27,7 +27,7 @@ namespace CloupardTask.Api.Mappers
 				.ForMember(dest => dest.ImageUrl, opt =>
 					opt.MapFrom(src =>
 					string.IsNullOrEmpty(src.ImageUrl)
-						? "/Images/placeholder.jpg" // Default image
+						? "/Images/1984.jpg" // Default image
 				:		$"/{src.ImageUrl.Replace("\\", "/")}"));
 
 
@@ -71,6 +71,8 @@ namespace CloupardTask.Api.Mappers
 					})))
 				.ReverseMap();
 
+
+			CreateMap<CustomerViewModel, Customer>().ReverseMap();
 		}
 	}
 }

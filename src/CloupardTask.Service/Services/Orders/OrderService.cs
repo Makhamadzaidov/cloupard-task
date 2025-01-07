@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using CloupardTask.Api.DbContexts;
 using CloupardTask.DataAccess.Interfaces.Orders;
+using CloupardTask.DataAccess.Repositories.Orders;
 using CloupardTask.Domain.Models;
 using CloupardTask.Service.DTOs.Orders;
 using CloupardTask.Service.Interfaces.Orders;
@@ -11,11 +13,13 @@ namespace CloupardTask.Service.Services.Orders
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly AppDbContext _appDbContext;
         private readonly IMapper _mapper;
 
-        public OrderService(IOrderRepository orderRepository, IMapper mapper)
+        public OrderService(IMapper mapper, AppDbContext dbContext)
         {
-            _orderRepository = orderRepository;
+            _appDbContext = dbContext;
+            _orderRepository = new OrderRepository(_appDbContext);
             _mapper = mapper;
         }
 

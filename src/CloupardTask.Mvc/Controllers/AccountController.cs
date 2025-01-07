@@ -12,10 +12,13 @@ namespace CloupardTask.Mvc.Controllers
             _customerService = customerService;
         }
 
-        public IActionResult Login()
+        /*public IActionResult Login()
         {
             return View("~/Views/Account/Login.cshtml");
+        }*/
+        public ActionResult Index()
+        {
+            return View("Index");
         }
-
     }
 }
