@@ -1,4 +1,6 @@
-﻿@model IEnumerable<CloupardTask.Service.ViewModels.Products.ProductViewModel>
+﻿@using Azure.Core
+
+@model IEnumerable<CloupardTask.Service.ViewModels.Products.ProductViewModel>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +52,7 @@
                         <img src="/images/facebook.svg" alt="facebook">
                     </a>
                 </div>
+
                 <div class="search-bar">
                     <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
@@ -57,8 +60,11 @@
                               fill="#70737C" />
                     </svg>
 
-                    <input type="text" class="search-input" placeholder="Search" />
+                    <form method="get" action="@Url.Action("GetAllProducts", "Product")">
+                        <input type="text" class="search-input" placeholder="Search" name="name" value="@Context.Request.Query["name"]" />
+                    </form>
                 </div>
+
 
                 <div class="nav__actions">
                     <a href="#">
@@ -336,7 +342,7 @@
                                 </svg>
 
                             </div>
-                        </div> *@
+                        </div>
 
 
 
