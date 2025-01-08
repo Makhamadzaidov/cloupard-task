@@ -39,16 +39,16 @@
                         </a>
                     </li>
                     <li class="nav__list__item">
-                        <a href="#">
+                        <a href="@Url.Action("Index", "Contact")">
                             CONTACTS
                         </a>
                     </li>
                 </ul>
                 <div class="nav__socials">
-                    <a href="#">
+                    <a href="https://www.instagram.com/instagram/">
                         <img src="/images/instagram.svg" alt="instagram">
                     </a>
-                    <a href="#">
+                    <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F">
                         <img src="/images/facebook.svg" alt="facebook">
                     </a>
                 </div>
@@ -264,7 +264,8 @@
 
                         @foreach (var product in Model)
                         {
-                            <div class="products__cards__card">
+                            <div class="products__cards__card" data-id="@product.Id" data-product="@product.Name">
+                                @* <a href="@Url.Action("ProductDetails", "Product", new { id = product.Id })"> *@
                                 <svg class="like__icon" width="40" height="40" viewBox="0 0 40 40" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="20" cy="20" r="19.5" fill="white" stroke="#EFEFEF" />
@@ -272,7 +273,9 @@
                                           fill="#FFCF55" />
                                 </svg>
 
-                                <img src="@Url.Content(product.ImageUrl)" alt="@product.Name" width="250" height="300"/>
+                                <img src="@Url.Content(product.ImageUrl)" alt="@product.Name" width="100%"/>
+
+                                
 
                                 <div class="products__cards__card__grade">
                                     <svg width="84" height="16" viewBox="0 0 84 16" fill="none"
@@ -540,6 +543,7 @@
             </div>
         </div>
     </footer>
+    <script src="~/js/product.js"></script>
 </body>
 
 </html>

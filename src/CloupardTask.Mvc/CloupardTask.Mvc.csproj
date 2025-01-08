@@ -22,4 +22,8 @@
     <Folder Include="wwwroot\themes\less\oregional\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\Contact\.DS_Store" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,185 @@
+﻿@model CloupardTask.Service.ViewModels.Products.ProductViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    @* <link rel="stylesheet" href="details.css"> *@
+
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .product-details {
+            display: flex;
+            gap: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Изображение товара */
+        .product-image {
+            position: relative;
+            width: 50%;
+            text-align: center;
+        }
+
+            .product-image img {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+        /* Информация о товаре */
+        .product-info {
+            width: 50%;
+        }
+
+        .product-title {
+            color: rgb(39, 76, 91);
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 47px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+
+        .rating {
+            font-size: 18px;
+            color: #f39c12;
+            margin: 10px 0;
+        }
+
+        .price {
+            margin: 10px 0;
+        }
+
+        .old-price {
+            color: rgb(184, 184, 184);
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 27px;
+            letter-spacing: 0%;
+            text-align: center;
+            margin-right: 8px;
+            text-decoration: line-through;
+        }
+
+        .current-price {
+            color: rgb(39, 76, 91);
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 34px;
+            letter-spacing: 0%;
+            text-align: center;
+        }
+
+        .description {
+            color: rgb(82, 92, 96);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 165.4%;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+
+        .quantity-container {
+            margin: 15px 10px 15px 0px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .quantity-container label {
+                color: rgb(39, 76, 91);
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 23px;
+                letter-spacing: 0%;
+                text-align: left;
+            }
+
+            .quantity-container input {
+                width: 60px;
+                padding: 5px;
+                font-size: 16px;
+                text-align: center;
+                box-sizing: border-box;
+                border: 2px solid rgb(39, 76, 91);
+                border-radius: 16px;
+                background: rgb(255, 255, 255);
+                color: rgb(39, 76, 91);
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 23px;
+                letter-spacing: 0%;
+                text-align: left;
+                padding: 8px 11px;
+            }
+
+        /* Кнопка добавления в корзину */
+        .add-to-cart-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            background: rgb(39, 76, 91);
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 23px;
+            letter-spacing: 0%;
+            text-align: left;
+        }
+
+            .add-to-cart-btn:hover {
+                background-color: grey;
+            }
+    </style>
+
+</head>
+<body>
+
+    <div class="product-details">
+        <div class="product-image">
+            <img src="@Url.Content(Model.ImageUrl)" alt="Health Pistachios">
+        </div>
+        <div class="product-info">
+            <h1 class="product-title">@Model.Name</h1>
+            <div class="rating">
+                ★★★★★
+            </div>
+            <div class="price">
+                <span class="old-price">@string.Format("{0:C}", Model.Price + 5)</span>
+                <span class="current-price">@string.Format("{0:C}", Model.Price)</span>
+            </div>
+            <p class="description">
+                @Model.Description
+            </p>
+            <div class="quantity-container">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1" min="1">
+            </div>
+            <button class="add-to-cart-btn">Add To Cart</button>
+        </div>
+    </div>
+
+</body>
+</html>
+

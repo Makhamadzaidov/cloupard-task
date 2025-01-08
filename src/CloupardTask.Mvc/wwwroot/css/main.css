@@ -383,7 +383,14 @@ header {
   border: 2px solid rgb(239, 239, 239);
   border-radius: 8px;
   position: relative;
+
+
 }
+
+.products__cards__card:hover{
+    cursor:pointer;
+} 
+
 @media screen and (max-width: 576px) {
   .products__cards__card {
     padding: 28px 12px;

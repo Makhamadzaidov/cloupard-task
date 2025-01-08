@@ -56,7 +56,21 @@ namespace CloupardTask.Mvc.Controllers
             return View("Index", products);
         }
 
-		public async Task<ActionResult> LatestProducts()
+        [HttpGet]
+        public async Task<IActionResult> ProductDetails(int id)
+        {
+            var product = await _productService.GetAsync(p => p.Id == id);
+
+            if (product == null)
+            {
+                return View("Error");
+            }
+
+            return View(product);
+        }
+
+
+        public async Task<ActionResult> LatestProducts()
 		{
             var products = await _productService.GetAllAsync();
 
