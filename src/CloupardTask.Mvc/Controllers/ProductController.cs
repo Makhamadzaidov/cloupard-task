@@ -1,9 +1,11 @@
 ﻿using CloupardTask.Api.Commons.Utils;
 using CloupardTask.Api.DTO_s;
 using CloupardTask.Domain.Models;
+using CloupardTask.Mvc.Models;
 using CloupardTask.Service.Interfaces.Products;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 using System.Linq.Expressions;
 
 namespace CloupardTask.Mvc.Controllers
@@ -67,6 +69,26 @@ namespace CloupardTask.Mvc.Controllers
             }
 
             return View(product);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllByName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                ViewBag.ErrorMessage = "Please provide a valid search term.";
+                return RedirectToAction("Index");
+            }
+
+            var products = await _productService.GetAllAsync(p => p.Name.ToLower().Contains(name.ToLower()));
+
+            if (products == null || !products.Any())
+            {
+                ViewBag.ErrorMessage = $"No products found matching '{name}'.";
+                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
+
+            return View("Index", products);
         }
 
 

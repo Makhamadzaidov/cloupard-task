@@ -60,10 +60,22 @@
                               fill="#70737C" />
                     </svg>
 
-                    <form method="get" action="@Url.Action("GetAllProducts", "Product")">
+                    <form method="get" action="@Url.Action("GetAllByName", "Product")">
                         <input type="text" class="search-input" placeholder="Search" name="name" value="@Context.Request.Query["name"]" />
                     </form>
                 </div>
+
+
+                <script>
+                    function validateSearchForm() {
+                        var searchInput = document.querySelector('.search-input').value;
+                        if (searchInput.trim() === "") {
+                            alert("Please provide a valid search term.");
+                            return false; // Prevent form submission
+                        }
+                        return true; // Allow form submission
+                    }
+                </script>
 
 
                 <div class="nav__actions">
