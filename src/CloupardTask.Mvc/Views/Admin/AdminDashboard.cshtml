@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CloupardTask.Service.ViewModels.Products.ProductViewModel>
+
+<h1>Admin Dashboard</h1>
+<p>Welcome, Admin! You can manage products here.</p>
+
+<!-- Create Product Form -->
+<h2>Create Product</h2>
+<form method="post" asp-action="CreateProduct" asp-controller="Admin">
+    <label for="Name">Product Name:</label>
+    <input type="text" id="Name" name="Name" required />
+    <br />
+    <label for="Price">Price:</label>
+    <input type="number" id="Price" name="Price" required />
+    <br />
+    <label for="Stock">Stock:</label>
+    <input type="number" id="Stock" name="Stock" required />
+    <br />
+    <button type="submit">Create</button>
+</form>
+
+<!-- Product List -->
+<h2>Product List</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <form method="post" asp-action="UpdateProduct" asp-controller="Admin" style="display:inline;">
+                        <input type="hidden" name="Id" value="@product.Id" />
+                        <input type="text" name="Name" value="@product.Name" required />
+                        <input type="text" name="Description" value="@product.Description" required />
+                        <input type="number" name="Price" value="@product.Price" required />
+                        <button type="submit">Update</button>
+                    </form>
+
+                    <!-- Delete Product Form -->
+                    <form method="post" asp-action="DeleteProduct" asp-controller="Admin" style="display:inline;">
+                        <input type="hidden" name="Id" value="@product.Id" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
